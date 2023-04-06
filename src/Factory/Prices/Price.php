@@ -85,6 +85,9 @@ class Price extends AEndpoint
         return $data;
     }
 
+    /**
+     * @return string
+     */
     public function getType(): string
     {
         return 'price';

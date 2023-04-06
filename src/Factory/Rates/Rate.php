@@ -43,6 +43,10 @@ class Rate extends AEndpoint
         return $this;
     }
 
+    /**
+     * @param int $clientIp
+     * @return $this
+     */
     public function setClientIp(int $clientIp): static
     {
         $this->clientIp = $clientIp;
