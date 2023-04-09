@@ -2,32 +2,43 @@
 
 namespace AlxDorosenco\VatlayerForLaravel\Http;
 
-use AlxDorosenco\VatlayerForLaravel\Exceptions\BothCountryCodeAndIpSuppliedException;
-use AlxDorosenco\VatlayerForLaravel\Exceptions\CouldNotResolveIpException;
-use AlxDorosenco\VatlayerForLaravel\Exceptions\HttpsAccessRestrictedException;
-use AlxDorosenco\VatlayerForLaravel\Exceptions\InactiveUserException;
-use AlxDorosenco\VatlayerForLaravel\Exceptions\InvalidAccessKeyException;
-use AlxDorosenco\VatlayerForLaravel\Exceptions\InvalidAmountException;
-use AlxDorosenco\VatlayerForLaravel\Exceptions\InvalidApiFunctionException;
-use AlxDorosenco\VatlayerForLaravel\Exceptions\InvalidCountryCodeException;
-use AlxDorosenco\VatlayerForLaravel\Exceptions\InvalidIpAddressException;
-use AlxDorosenco\VatlayerForLaravel\Exceptions\InvalidTypeException;
-use AlxDorosenco\VatlayerForLaravel\Exceptions\MissingAccessKeyException;
-use AlxDorosenco\VatlayerForLaravel\Exceptions\NoCountryCodeOrIpSuppliedException;
-use AlxDorosenco\VatlayerForLaravel\Exceptions\NotFoundException;
-use AlxDorosenco\VatlayerForLaravel\Exceptions\NoVatNumberSuppliedException;
-use AlxDorosenco\VatlayerForLaravel\Exceptions\UsageLimitReachedException;
+use AlxDorosenco\VatlayerForLaravel\Http\Exceptions\BothCountryCodeAndIpSuppliedException;
+use AlxDorosenco\VatlayerForLaravel\Http\Exceptions\CouldNotResolveIpException;
+use AlxDorosenco\VatlayerForLaravel\Http\Exceptions\HttpsAccessRestrictedException;
+use AlxDorosenco\VatlayerForLaravel\Http\Exceptions\InactiveUserException;
+use AlxDorosenco\VatlayerForLaravel\Http\Exceptions\InvalidAccessKeyException;
+use AlxDorosenco\VatlayerForLaravel\Http\Exceptions\InvalidAmountException;
+use AlxDorosenco\VatlayerForLaravel\Http\Exceptions\InvalidApiFunctionException;
+use AlxDorosenco\VatlayerForLaravel\Http\Exceptions\InvalidCountryCodeException;
+use AlxDorosenco\VatlayerForLaravel\Http\Exceptions\InvalidIpAddressException;
+use AlxDorosenco\VatlayerForLaravel\Http\Exceptions\InvalidTypeException;
+use AlxDorosenco\VatlayerForLaravel\Http\Exceptions\MissingAccessKeyException;
+use AlxDorosenco\VatlayerForLaravel\Http\Exceptions\NoCountryCodeOrIpSuppliedException;
+use AlxDorosenco\VatlayerForLaravel\Http\Exceptions\NotFoundException;
+use AlxDorosenco\VatlayerForLaravel\Http\Exceptions\NoVatNumberSuppliedException;
+use AlxDorosenco\VatlayerForLaravel\Http\Exceptions\UsageLimitReachedException;
 
 class Error
 {
     /**
+     * @var string
+     */
+    private $message;
+
+    /**
+     * @var int
+     */
+    private $code;
+
+    /**
      * @param string $message
      * @param int $code
      */
-    public function __construct(
-        private string $message,
-        private int $code
-    ){}
+    public function __construct(string $message, int $code)
+    {
+        $this->message = $message;
+        $this->code = $code;
+    }
 
     /**
      * @throws NotFoundException

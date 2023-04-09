@@ -13,7 +13,7 @@ abstract class AEndpoint
 
     public function __construct()
     {
-        $this->client = new Client($this->getType(), $this->getData());
+        $this->client = new Client($this->getType());
     }
 
     /**

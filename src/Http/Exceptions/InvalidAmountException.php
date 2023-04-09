@@ -1,6 +1,6 @@
 <?php
 
-namespace AlxDorosenco\VatlayerForLaravel\Exceptions;
+namespace AlxDorosenco\VatlayerForLaravel\Http\Exceptions;
 
 use Exception;
 

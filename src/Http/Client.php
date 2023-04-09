@@ -16,13 +16,11 @@ class Client
 
     /**
      * @param string $type
-     * @param array $data
      */
-    public function __construct(string $type, array $data){
+    public function __construct(string $type){
         $this->url .= $type;
 
-        $data['access_key'] = config('vatlayer.access_key');
-        $this->data = $data;
+        $this->data['access_key'] = config('vatlayer.access_key');
     }
 
     /**
