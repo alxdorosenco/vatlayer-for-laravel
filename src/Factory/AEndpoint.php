@@ -21,7 +21,7 @@ abstract class AEndpoint
      */
     public function toArray(): array
     {
-        return json_decode($this->client->get(), true);
+        return json_decode($this->client->setData($this->getData())->get(), true);
     }
 
     /**
@@ -29,7 +29,7 @@ abstract class AEndpoint
      */
     public function toJson(): string
     {
-        return $this->client->get();
+        return $this->client->setData($this->getData())->get();
     }
 
     /**

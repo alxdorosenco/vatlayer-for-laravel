@@ -7,7 +7,7 @@ class Client
     /**
      * @var array
      */
-    private $data;
+    private $data = [];
 
     /**
      * @var string
@@ -40,15 +40,30 @@ class Client
         return new Response($headers, $body, $error);
     }
 
+    /**
+     * @param array $data
+     * @return $this
+     */
+    public function setData(array $data)
+    {
+        $this->data += $data;
+
+        return $this;
+    }
+
+    /**
+     * @throws \JsonException
+     */
     public function get()
     {
         return $this->makeRequest();
     }
 
+    /**
+     * @throws \JsonException
+     */
     public function makeRequest()
     {
-        $response = $this->makeCurlRequest($this->url.'&'.http_build_query($this->data));
-
-        return $response->getBody();
+        return $this->makeCurlRequest($this->url.'&'.http_build_query($this->data))->getBody();
     }
 }
