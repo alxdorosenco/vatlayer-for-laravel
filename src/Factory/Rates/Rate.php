@@ -9,23 +9,23 @@ class Rate extends AEndpoint
     /**
      * @var string
      */
-    private string $countryCode;
+    private $countryCode;
 
     /**
      * @var string
      */
-    private string $ipAddress;
+    private $ipAddress;
 
     /**
      * @var int
      */
-    private int $clientIp;
+    private $clientIp;
 
     /**
      * @param string $code
      * @return $this
      */
-    public function setCountryCode(string $code): static
+    public function setCountryCode(string $code)
     {
         $this->countryCode = $code;
 
@@ -36,7 +36,7 @@ class Rate extends AEndpoint
      * @param string $ipAddress
      * @return $this
      */
-    public function setIpAddress(string $ipAddress): static
+    public function setIpAddress(string $ipAddress)
     {
         $this->ipAddress = $ipAddress;
 
@@ -47,7 +47,7 @@ class Rate extends AEndpoint
      * @param int $clientIp
      * @return $this
      */
-    public function setClientIp(int $clientIp): static
+    public function setClientIp(int $clientIp)
     {
         $this->clientIp = $clientIp;
 

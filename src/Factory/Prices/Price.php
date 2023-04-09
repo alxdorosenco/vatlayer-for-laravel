@@ -9,28 +9,28 @@ class Price extends AEndpoint
     /**
      * @var int|float
      */
-    private int|float $amount;
+    private $amount;
 
     /**
      * @var string
      */
-    private string $countryCode;
+    private $countryCode;
 
     /**
      * @var string
      */
-    private string $type;
+    private $type;
 
     /**
      * @var int
      */
-    private int $incl;
+    private $incl;
 
     /**
      * @param int|float $amount
      * @return $this
      */
-    public function setAmount(int|float $amount): static
+    public function setAmount($amount)
     {
         $this->amount = $amount;
 
@@ -41,7 +41,7 @@ class Price extends AEndpoint
      * @param string $code
      * @return $this
      */
-    public function setCountryCode(string $code): static
+    public function setCountryCode(string $code)
     {
         $this->countryCode = $code;
 
@@ -52,7 +52,7 @@ class Price extends AEndpoint
      * @param string $type
      * @return $this
      */
-    public function setType(string $type): static
+    public function setType(string $type)
     {
         $this->type = $type;
 
@@ -63,7 +63,7 @@ class Price extends AEndpoint
      * @param string $incl
      * @return $this
      */
-    public function setIncl(string $incl): static
+    public function setIncl(string $incl)
     {
         $this->incl = $incl;
 

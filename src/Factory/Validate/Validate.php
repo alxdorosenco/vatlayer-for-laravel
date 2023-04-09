@@ -20,14 +20,14 @@ class Validate extends AEndpoint
      * @param string $vatNumber
      * @return $this
      */
-    public function setVatNumber(string $vatNumber): static
+    public function setVatNumber(string $vatNumber)
     {
         $this->vatNumber = $vatNumber;
 
         return $this;
     }
 
-    public function setFormat(int $format): static
+    public function setFormat(int $format)
     {
         $this->format = $format;
 

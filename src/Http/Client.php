@@ -7,12 +7,12 @@ class Client
     /**
      * @var array
      */
-    private array $data;
+    private $data;
 
     /**
      * @var string
      */
-    private string $url = 'http://apilayer.net/api/';
+    private $url = 'http://apilayer.net/api/';
 
     /**
      * @param string $type
@@ -42,57 +42,14 @@ class Client
         return new Response($headers, $body, $error);
     }
 
-    /**
-     * @return mixed
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\BothCountryCodeAndIpSuppliedException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\CouldNotResolveIpException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\HttpsAccessRestrictedException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\InactiveUserException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\InvalidAccessKeyException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\InvalidAmountException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\InvalidApiFunctionException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\InvalidCountryCodeException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\InvalidIpAddressException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\InvalidTypeException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\MissingAccessKeyException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\NoCountryCodeOrIpSuppliedException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\NoVatNumberSuppliedException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\NotFoundException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\UsageLimitReachedException
-     * @throws \JsonException
-     */
     public function get()
     {
         return $this->makeRequest();
     }
 
-    /**
-     * @return mixed
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\BothCountryCodeAndIpSuppliedException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\CouldNotResolveIpException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\HttpsAccessRestrictedException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\InactiveUserException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\InvalidAccessKeyException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\InvalidAmountException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\InvalidApiFunctionException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\InvalidCountryCodeException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\InvalidIpAddressException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\InvalidTypeException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\MissingAccessKeyException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\NoCountryCodeOrIpSuppliedException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\NoVatNumberSuppliedException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\NotFoundException
-     * @throws \AlxDorosenco\VatlayerForLaravel\Exceptions\UsageLimitReachedException
-     * @throws \JsonException
-     */
-    public function makeRequest(): mixed
+    public function makeRequest()
     {
         $response = $this->makeCurlRequest($this->url.'&'.http_build_query($this->data));
-
-        if(!empty($response->getError())){
-            $error = new Error($response->getError()['message'], $response->getError()['code']);
-            $error->throwExceptionByType($response->getError()['type']);
-        }
 
         return $response->getBody();
     }

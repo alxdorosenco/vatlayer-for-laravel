@@ -9,7 +9,7 @@ abstract class AEndpoint
     /**
      * @var Client
      */
-    private Client $client;
+    private $client;
 
     public function __construct()
     {
@@ -18,11 +18,10 @@ abstract class AEndpoint
 
     /**
      * @return array
-     * @throws \JsonException
      */
     public function toArray(): array
     {
-        return json_decode($this->client->get(), true, 512, JSON_THROW_ON_ERROR);
+        return json_decode($this->client->get(), true);
     }
 
     /**
