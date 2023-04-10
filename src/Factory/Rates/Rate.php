@@ -63,7 +63,7 @@ class Rate extends AEndpoint
 
         !$this->countryCode ?: $data['country_code'] = $this->countryCode;
         !$this->ipAddress ?: $data['ip_address'] = $this->ipAddress;
-        !$this->ipAddress ?: $data['client_ip'] = $this->clientIp;
+        !$this->clientIp ?: $data['client_ip'] = $this->clientIp;
 
         return $data;
     }

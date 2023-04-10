@@ -19,6 +19,6 @@ class Types extends AEndpoint
      */
     public function getType(): string
     {
-        return 'validate';
+        return 'types';
     }
 }

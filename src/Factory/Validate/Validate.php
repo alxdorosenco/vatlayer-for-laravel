@@ -9,12 +9,17 @@ class Validate extends AEndpoint
     /**
      * @var string
      */
-    private string $vatNumber;
+    private $vatNumber;
 
     /**
      * @var int
      */
-    private int $format;
+    private $format;
+
+    /**
+     * @var string
+     */
+    private $callback;
 
     /**
      * @param string $vatNumber
@@ -27,9 +32,24 @@ class Validate extends AEndpoint
         return $this;
     }
 
+    /**
+     * @param int $format
+     * @return $this
+     */
     public function setFormat(int $format)
     {
         $this->format = $format;
+
+        return $this;
+    }
+
+    /**
+     * @param string $callback
+     * @return $this
+     */
+    public function setCallback(string $callback)
+    {
+        $this->callback = $callback;
 
         return $this;
     }
@@ -43,6 +63,7 @@ class Validate extends AEndpoint
 
         !$this->vatNumber ?: $data['vat_number'] = $this->vatNumber;
         !$this->format ?: $data['format'] = $this->format;
+        !$this->callback ?: $data['callback'] = $this->callback;
 
         return $data;
     }
