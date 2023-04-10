@@ -3,7 +3,7 @@
 namespace AlxDorosenco\VatlayerForLaravel\Tests\Unit\Factory\Validate;
 
 use AlxDorosenco\VatlayerForLaravel\Factory\Validate\Validate;
-use Tests\TestCase;
+use AlxDorosenco\VatlayerForLaravel\Tests\TestCase;
 
 class ValidateTest extends TestCase
 {

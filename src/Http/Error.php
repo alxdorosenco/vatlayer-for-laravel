@@ -41,41 +41,60 @@ class Error
     }
 
     /**
-     * @throws NotFoundException
-     * @throws InvalidAccessKeyException
-     * @throws MissingAccessKeyException
-     * @throws UsageLimitReachedException
-     * @throws InvalidApiFunctionException
-     * @throws NoVatNumberSuppliedException
-     * @throws HttpsAccessRestrictedException
-     * @throws InactiveUserException
-     * @throws NoCountryCodeOrIpSuppliedException
-     * @throws BothCountryCodeAndIpSuppliedException
-     * @throws InvalidIpAddressException
-     * @throws CouldNotResolveIpException
-     * @throws InvalidCountryCodeException
-     * @throws InvalidAmountException
-     * @throws InvalidTypeException
+     * @param string $type
+     * @return mixed
      */
-    public function throwExceptionByType(string $type): void
+    public function throwExceptionByType(string $type)
     {
-        match ($type) {
-            '404_not_found' => throw new NotFoundException($this->message, $this->code),
-            'missing_access_key' => throw new MissingAccessKeyException($this->message, $this->code),
-            'invalid_access_key' => throw new InvalidAccessKeyException($this->message, $this->code),
-            'invalid_api_function' => throw new InvalidApiFunctionException($this->message, $this->code),
-            'usage_limit_reached' => throw new UsageLimitReachedException($this->message, $this->code),
-            'no_vat_number_supplied' => throw new NoVatNumberSuppliedException($this->message, $this->code),
-            'https_access_restricted' => throw new HttpsAccessRestrictedException($this->message, $this->code),
-            'inactive_user' => throw new InactiveUserException($this->message, $this->code),
-            'no_country_code_or_ip_supplied' => throw new NoCountryCodeOrIpSuppliedException($this->message, $this->code),
-            'both_country_code_and_ip_supplied' => throw new BothCountryCodeAndIpSuppliedException($this->message, $this->code),
-            'invalid_ip_address' => throw new InvalidIpAddressException($this->message, $this->code),
-            'could_not_resolve_ip' => throw new CouldNotResolveIpException($this->message, $this->code),
-            'invalid_country_code' => throw new InvalidCountryCodeException($this->message, $this->code),
-            'invalid_amount' => throw new InvalidAmountException($this->message, $this->code),
-            'invalid_type' => throw new InvalidTypeException($this->message, $this->code),
-            default => throw new \RuntimeException('Unknown error')
-        };
+        switch ($type)
+        {
+            case '404_not_found':
+                throw new NotFoundException($this->message, $this->code);
+
+            case 'missing_access_key':
+                throw new MissingAccessKeyException($this->message, $this->code);
+
+            case 'invalid_access_key':
+                throw new InvalidAccessKeyException($this->message, $this->code);
+
+            case 'invalid_api_function':
+                throw new InvalidApiFunctionException($this->message, $this->code);
+
+            case 'usage_limit_reached':
+                throw new UsageLimitReachedException($this->message, $this->code);
+
+            case 'no_vat_number_supplied':
+                throw new NoVatNumberSuppliedException($this->message, $this->code);
+
+            case 'https_access_restricted':
+                throw new HttpsAccessRestrictedException($this->message, $this->code);
+
+            case 'inactive_user':
+                throw new InactiveUserException($this->message, $this->code);
+
+            case 'no_country_code_or_ip_supplied':
+                throw new NoCountryCodeOrIpSuppliedException($this->message, $this->code);
+
+            case 'both_country_code_and_ip_supplied':
+                throw new BothCountryCodeAndIpSuppliedException($this->message, $this->code);
+
+            case 'invalid_ip_address':
+                throw new InvalidIpAddressException($this->message, $this->code);
+
+            case 'could_not_resolve_ip':
+                throw new CouldNotResolveIpException($this->message, $this->code);
+
+            case 'invalid_country_code':
+                throw new InvalidCountryCodeException($this->message, $this->code);
+
+            case 'invalid_amount':
+                throw new InvalidAmountException($this->message, $this->code);
+
+            case 'invalid_type':
+                throw new InvalidTypeException($this->message, $this->code);
+
+            default:
+                throw new \RuntimeException('Unknown error');
+        }
     }
 }

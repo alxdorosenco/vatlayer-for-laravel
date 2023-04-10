@@ -3,7 +3,7 @@
 namespace AlxDorosenco\VatlayerForLaravel\Tests\Unit\Factory\Rates;
 
 use AlxDorosenco\VatlayerForLaravel\Factory\Rates\Rate;
-use Tests\TestCase;
+use AlxDorosenco\VatlayerForLaravel\Tests\TestCase;
 
 class RateTest extends TestCase
 {

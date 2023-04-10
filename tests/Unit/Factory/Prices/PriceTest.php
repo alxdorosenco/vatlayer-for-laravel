@@ -3,7 +3,7 @@
 namespace AlxDorosenco\VatlayerForLaravel\Tests\Unit\Factory\Prices;
 
 use AlxDorosenco\VatlayerForLaravel\Factory\Prices\Price;
-use Tests\TestCase;
+use AlxDorosenco\VatlayerForLaravel\Tests\TestCase;
 
 class PriceTest extends TestCase
 {

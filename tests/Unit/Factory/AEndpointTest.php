@@ -3,7 +3,7 @@
 namespace AlxDorosenco\VatlayerForLaravel\Tests\Unit\Factory;
 
 use AlxDorosenco\VatlayerForLaravel\Factory\AEndpoint;
-use Tests\TestCase;
+use AlxDorosenco\VatlayerForLaravel\Tests\TestCase;
 
 class AEndpointTest extends TestCase
 {
@@ -44,6 +44,8 @@ class AEndpointTest extends TestCase
             ->method('getType')
             ->will($this->returnValue('price'));
 
+        $this->expectException(\Exception::class);
+
         $this->assertIsArray($stub->toArray());
     }
 
@@ -53,6 +55,8 @@ class AEndpointTest extends TestCase
         $stub->expects($this->any())
             ->method('getType')
             ->will($this->returnValue('price'));
+
+        $this->expectException(\Exception::class);
 
         $this->assertIsString($stub->toJson());
     }

@@ -3,7 +3,7 @@
 namespace AlxDorosenco\VatlayerForLaravel\Tests\Unit\Factory\Types;
 
 use AlxDorosenco\VatlayerForLaravel\Factory\Types\Types;
-use Tests\TestCase;
+use AlxDorosenco\VatlayerForLaravel\Tests\TestCase;
 
 class TypesTest extends TestCase
 {

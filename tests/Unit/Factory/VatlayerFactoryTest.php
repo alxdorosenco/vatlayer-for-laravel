@@ -3,7 +3,7 @@
 namespace AlxDorosenco\VatlayerForLaravel\Tests\Unit\Factory;
 
 use AlxDorosenco\VatlayerForLaravel\Factory\VatlayerFactory;
-use Tests\TestCase;
+use AlxDorosenco\VatlayerForLaravel\Tests\TestCase;
 
 use AlxDorosenco\VatlayerForLaravel\Factory\Prices\Price;
 use AlxDorosenco\VatlayerForLaravel\Factory\Rates\Rate;

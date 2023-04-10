@@ -19,21 +19,24 @@ class Client
      */
     public function __construct(string $type){
         $this->url .= $type;
-
-        $this->data['access_key'] = config('vatlayer.access_key');
+        $this->url .= '?access_key='.config('vatlayer.access_key');
     }
 
     /**
      * @return Response
      */
-    private function makeCurlRequest(string $fullUrl): Response
+    public function makeCurlRequest(string $fullUrl): Response
     {
         $curlHandle = curl_init($fullUrl);
         curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
 
-        $body = json_decode(curl_exec($curlHandle), true, 512, JSON_THROW_ON_ERROR);
+        $body = json_decode(curl_exec($curlHandle), true);
         $headers = curl_getinfo($curlHandle);
         $error = curl_error($curlHandle);
+
+        if($error === ""){
+            $error = $body['error'] ?? "";
+        }
 
         curl_close($curlHandle);
 
@@ -46,24 +49,23 @@ class Client
      */
     public function setData(array $data)
     {
-        $this->data += $data;
+        $this->data = $data;
 
         return $this;
     }
 
     /**
-     * @throws \JsonException
+     * @return mixed
      */
     public function get()
     {
-        return $this->makeRequest();
-    }
+        $response = $this->makeCurlRequest($this->url.'&'.http_build_query($this->data));
 
-    /**
-     * @throws \JsonException
-     */
-    public function makeRequest()
-    {
-        return $this->makeCurlRequest($this->url.'&'.http_build_query($this->data))->getBody();
+        if(!empty($response->getError()['code'])){
+            $error = new Error($response->getError()['info'], $response->getError()['code']);
+            $error->throwExceptionByType($response->getError()['type']);
+        }
+
+        return $response->getBody();
     }
 }
