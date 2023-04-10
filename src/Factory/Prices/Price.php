@@ -27,6 +27,11 @@ class Price extends AEndpoint
     private $incl;
 
     /**
+     * @var int
+     */
+    private $format;
+
+    /**
      * @param int|float $amount
      * @return $this
      */
@@ -71,6 +76,17 @@ class Price extends AEndpoint
     }
 
     /**
+     * @param int $format
+     * @return $this
+     */
+    public function setFormat(int $format)
+    {
+        $this->format = $format;
+
+        return $this;
+    }
+
+    /**
      * @return array
      */
     public function getData(): array
@@ -81,6 +97,7 @@ class Price extends AEndpoint
         !$this->countryCode ?: $data['country_code'] = $this->countryCode;
         !$this->type ?: $data['type'] = $this->type;
         !$this->incl ?: $data['incl'] = $this->incl;
+        !$this->format ?: $data['format'] = $this->format;
 
         return $data;
     }

@@ -51,6 +51,14 @@ class PriceTest extends TestCase
         $this->assertEquals(1, $this->price->getData()['incl']);
     }
 
+    public function testSetFormatMethod()
+    {
+        $type = $this->price->setFormat(1);
+
+        $this->assertEquals($this->price, $type);
+        $this->assertEquals(1, $this->price->getData()['format']);
+    }
+
     public function testGetDataMethod()
     {
         $this->price

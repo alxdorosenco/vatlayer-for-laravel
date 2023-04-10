@@ -23,7 +23,7 @@ class ClientTest extends TestCase
     public function testMakeCurlRequestMethod()
     {
         $url = $this->url . $this->type;
-        $url .= '?access_key='.config('vatlayer.access_key');
+        $url .= '?access_key=wrongKey';
 
         $request = $this->client->makeCurlRequest($url);
 
@@ -39,8 +39,6 @@ class ClientTest extends TestCase
 
     public function testGetMethod()
     {
-        $this->expectException(\Exception::class);
-
-        $this->assertIsArray($this->client->get());
+        $this->assertIsString($this->client->get());
     }
 }

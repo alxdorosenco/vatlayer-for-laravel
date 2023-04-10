@@ -22,6 +22,11 @@ class Rate extends AEndpoint
     private $clientIp;
 
     /**
+     * @var int
+     */
+    private $format;
+
+    /**
      * @param string $code
      * @return $this
      */
@@ -55,6 +60,17 @@ class Rate extends AEndpoint
     }
 
     /**
+     * @param int $format
+     * @return $this
+     */
+    public function setFormat(int $format)
+    {
+        $this->format = $format;
+
+        return $this;
+    }
+
+    /**
      * @return array
      */
     public function getData(): array
@@ -64,6 +80,7 @@ class Rate extends AEndpoint
         !$this->countryCode ?: $data['country_code'] = $this->countryCode;
         !$this->ipAddress ?: $data['ip_address'] = $this->ipAddress;
         !$this->clientIp ?: $data['client_ip'] = $this->clientIp;
+        !$this->format ?: $data['format'] = $this->format;
 
         return $data;
     }

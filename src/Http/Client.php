@@ -17,7 +17,8 @@ class Client
     /**
      * @param string $type
      */
-    public function __construct(string $type){
+    public function __construct(string $type)
+    {
         $this->url .= $type;
         $this->url .= '?access_key='.config('vatlayer.access_key');
     }
@@ -30,12 +31,13 @@ class Client
         $curlHandle = curl_init($fullUrl);
         curl_setopt($curlHandle, CURLOPT_RETURNTRANSFER, true);
 
-        $body = json_decode(curl_exec($curlHandle), true);
+        $body = curl_exec($curlHandle);
         $headers = curl_getinfo($curlHandle);
         $error = curl_error($curlHandle);
 
         if($error === ""){
-            $error = $body['error'] ?? "";
+            $bodyArray = json_decode($body, true);
+            $error = $bodyArray['error'] ?? "";
         }
 
         curl_close($curlHandle);

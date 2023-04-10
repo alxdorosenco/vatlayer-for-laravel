@@ -43,6 +43,14 @@ class RateTest extends TestCase
         $this->assertEquals(1, $this->rate->getData()['client_ip']);
     }
 
+    public function testSetFormatMethod()
+    {
+        $type = $this->rate->setFormat(1);
+
+        $this->assertEquals($this->rate, $type);
+        $this->assertEquals(1, $this->rate->getData()['format']);
+    }
+
     public function testGetDataMethod()
     {
         $this->rate

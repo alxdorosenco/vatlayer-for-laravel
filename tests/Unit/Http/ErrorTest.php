@@ -18,6 +18,7 @@ class ErrorTest extends TestCase
             'invalid_access_key' => ['invalid_access_key', 101, 'User entered an invalid Access Key.'],
             'invalid_api_function' => ['invalid_api_function', 103, 'User requested a non-existent API Function.'],
             'usage_limit_reached' => ['usage_limit_reached', 104, 'User has reached or exceeded his Subscription Plan\'s monthly API Request Allowance.'],
+            'rate_limit_reached' => ['rate_limit_reached', 106, 'You have exceeded the maximum rate limitation allowed on your subscription plan. Please refer to the "Rate Limits" section of the API Documentation for details.'],
             'no_vat_number_supplied' => ['no_vat_number_supplied', 210, 'User did not provide a VAT Number.'],
             'https_access_restricted' => ['https_access_restricted', 105, 'The user\'s current Subscription Plan does not support HTTPS Encryption.'],
             'inactive_user' => ['inactive_user', 102, 'The user\'s account is not active. User will be prompted to get in touch with Customer Support.'],

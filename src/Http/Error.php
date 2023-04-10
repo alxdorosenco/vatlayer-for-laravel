@@ -93,6 +93,9 @@ class Error
             case 'invalid_type':
                 throw new InvalidTypeException($this->message, $this->code);
 
+            case 'rate_limit_reached':
+                throw new InvalidTypeException($this->message, $this->code);
+
             default:
                 throw new \RuntimeException('Unknown error');
         }

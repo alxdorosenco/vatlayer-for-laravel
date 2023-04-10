@@ -19,6 +19,14 @@ class TypesTest extends TestCase
         $this->types = new Types();
     }
 
+    public function testSetFormatMethod()
+    {
+        $type = $this->types->setFormat(1);
+
+        $this->assertEquals($this->types, $type);
+        $this->assertEquals(1, $this->types->getData()['format']);
+    }
+
     public function testGetDataMethod()
     {
         $data = $this->types->getData();

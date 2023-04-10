@@ -19,6 +19,14 @@ class RateListTest extends TestCase
         $this->rateList = new RateList();
     }
 
+    public function testSetFormatMethod()
+    {
+        $type = $this->rateList->setFormat(1);
+
+        $this->assertEquals($this->rateList, $type);
+        $this->assertEquals(1, $this->rateList->getData()['format']);
+    }
+
     public function testGetDataMethod()
     {
         $data = $this->rateList->getData();

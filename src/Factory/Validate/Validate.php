@@ -62,8 +62,8 @@ class Validate extends AEndpoint
         $data = [];
 
         !$this->vatNumber ?: $data['vat_number'] = $this->vatNumber;
-        !$this->format ?: $data['format'] = $this->format;
         !$this->callback ?: $data['callback'] = $this->callback;
+        !$this->format ?: $data['format'] = $this->format;
 
         return $data;
     }
