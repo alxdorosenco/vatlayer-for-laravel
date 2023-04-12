@@ -9,7 +9,7 @@ You can find additional information in the documentation via this link
 
 1. First of all you need to install the package:
     ```
-    composer require alxdorosenco/porto-for-laravel
+    composer require alxdorosenco/vatlayer-for-laravel
     ```
 2. Next, you need to put access key in your .env file:
     ```
